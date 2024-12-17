@@ -1,9 +1,12 @@
+#pip install requests
+#pulling requests library may not install all modules. The program runs regardless of this error.
 import requests
 
 def get_external_ip():
     try:
         response = requests.get('https://api.ipify.org?format=json')
-        response.raise_for_status()  # Raise an error for bad HTTP status
+        response.raise_for_status()  
+        # Raise an error for bad HTTP status
         ip_data = response.json()
         print(f"Your external IP address is: {ip_data['ip']}")
     except requests.RequestException as e:
